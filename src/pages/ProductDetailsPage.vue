@@ -9,12 +9,16 @@
             <button class="add-to-cart">Add to Cart</button>
         </div>
     </div>
+
+    <div v-else>
+        <NotFoundPage />
+    </div>
 </template>
 
 
 <script>
 import { products } from '../temp-data';
-
+import NotFoundPage from './NotFoundPage.vue';
 
 export default {
     name: 'ProductDetailsPage',
@@ -22,6 +26,9 @@ export default {
         return {
             product: products.find(p => p.id === this.$route.params.id),
         }
+    },
+    components: {
+        NotFoundPage,
     }
 }
 </script>
